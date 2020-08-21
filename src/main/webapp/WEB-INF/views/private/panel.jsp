@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>IErrss</title>
+<title>Panel</title>
 </head>
 <body>
-
+<h1>Bienvenido </h1>
 </body>
 </html>
