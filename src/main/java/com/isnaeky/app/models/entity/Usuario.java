@@ -22,7 +22,7 @@ public class Usuario implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	
 	//@Size(min = 4 , max = 12)//Para crear un rango de un string 
 	@NotEmpty//para que funcione con spring boot 2.3.. se tiene que agregar la dependencia de spring-boot-starter-validation si no podra acceder a las validaciones 
@@ -34,14 +34,14 @@ public class Usuario implements Serializable{
 	private String pass;
 
 
-	/*public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
-	}*/
+	}
 
 
 	public String getUser() {

@@ -56,6 +56,7 @@ public class IndexController {
 	public String dateLogin(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model){
 		//Usuario usuario = null;
 		//
+		System.out.println(usuario.getUser()+"----"+usuario.getPass());
 		if (result.hasErrors()) {
 			System.out.println("Hay errores");
 			return "/login/login";
