@@ -54,16 +54,27 @@ public class IndexController {
 	
 	@PostMapping("/formlogin")
 	public String dateLogin(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model){
-		//Usuario usuario = null;
+		Usuario user = null;
 		//
 		System.out.println(usuario.getUser()+"----"+usuario.getPass());
+		
 		if (result.hasErrors()) {
 			System.out.println("Hay errores");
 			return "/login/login";
 		}
+		user = usuarioDao.findOne(usuario.getUser());
+		if (user != null) {
+			System.out.println("Correcto");
+			System.out.println(user.getId());
+		}else {
+			System.out.println("Error");
+		}
+		
 		if (usuarioDao.findOne(usuario.getUser()) != null) {
 		System.out.println("Encontrado");	
 		
+		}else {
+			System.out.println("Error en buscar");
 		}
 				
 		return "redirect:/panel";

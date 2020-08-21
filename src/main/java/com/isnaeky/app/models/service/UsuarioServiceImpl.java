@@ -29,6 +29,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Transactional(readOnly = true)
 	public Usuario findOne(String name) {
 		// TODO Auto-generated method stub
+		
 		return usuarioDao.findOne(name);
 	}
 
