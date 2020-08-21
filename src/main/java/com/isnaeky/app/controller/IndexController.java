@@ -66,6 +66,8 @@ public class IndexController {
 		if (user != null) {
 			System.out.println("Correcto");
 			System.out.println(user.getId());
+			System.out.println(user.getPass());
+			System.out.println( usuario.getPass());
 		}else {
 			System.out.println("Error");
 		}

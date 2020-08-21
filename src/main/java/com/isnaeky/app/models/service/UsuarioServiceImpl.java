@@ -30,7 +30,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	public Usuario findOne(String name) {
 		// TODO Auto-generated method stub
 		
-		return usuarioDao.findOne(name);
+		return usuarioDao.findOne(name); 
 	}
 
 	@Override
