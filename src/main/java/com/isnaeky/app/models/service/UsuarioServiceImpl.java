@@ -39,4 +39,18 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		
 	}
 
+	@Override
+	public List<Usuario> findO(String name) {
+		// TODO Auto-generated method stub
+		return usuarioDao.findO(name);
+	}
+
+	@Override
+	public Usuario getUsuario(String email) {
+		// TODO Auto-generated method stub
+		 return usuarioDao.getUsuario(email);
+	}
+	
+	
+
 }

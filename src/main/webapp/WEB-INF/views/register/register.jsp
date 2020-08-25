@@ -22,7 +22,7 @@
 				<p>El registrarte te da muchos beneficios exclusivos para ti.</p>
 			</header>
 			<div class="box">
-				<form method="post" action="#">
+				<form method="post" action="/register">
 					<div class="row gtr-50 gtr-uniform">
 						<div class="col-6 col-12-mobilep">
 							<input type="text" name="nombre" id="nombre" value=""

@@ -1,5 +1,6 @@
 package com.isnaeky.app.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,20 +9,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.isnaeky.app.formbean.LoginBean;
 import com.isnaeky.app.models.entity.Usuario;
 import com.isnaeky.app.models.service.IUsuarioService;
-
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 @Controller
 public class IndexController {
+	
+	Logger logger = LogManager.getLogger(IndexController.class);
 	
 	@Autowired//inyecta la dependencia
 	//@Qualifier("clienteDaoJPA")//Se pone cuando exista mas de una implementacion de Dao ya que solo es posible tener uno 
@@ -34,7 +32,7 @@ public class IndexController {
 		return "/inicio/index";
 	}
 
-	@GetMapping({ "/registrar", "/register" })
+	@GetMapping("/registrar")
 	public String registrar() {
 		System.out.println("Entro a registrar");
 		return "/register/register";
@@ -55,34 +53,33 @@ public class IndexController {
 	@PostMapping("/formlogin")
 	public String dateLogin(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model){
 		Usuario user = null;
-		//
-		System.out.println(usuario.getUser()+"----"+usuario.getPass());
-		
 		if (result.hasErrors()) {
-			System.out.println("Hay errores");
+			logger.error("Se encontro un error en los datos obtenidos");
 			return "/login/login";
 		}
-		user = usuarioDao.findOne(usuario.getUser());
-		if (user != null) {
-			System.out.println("Correcto");
-			System.out.println(user.getId());
-			System.out.println(user.getPass());
-			System.out.println( usuario.getPass());
-		}else {
-			System.out.println("Error");
+		logger.error(usuario.getEmail());
+		user = usuarioDao.getUsuario(usuario.getEmail());
+		logger.info(user.getId());
+		logger.info(user.getPass());
+		logger.info(user.getEmail());
+		if (user.getId() == null) {
+			logger.error("No hay datos disponibles verifique");
 		}
 		
-		if (usuarioDao.findOne(usuario.getUser()) != null) {
-		System.out.println("Encontrado");	
-		
-		}else {
-			System.out.println("Error en buscar");
+		if (user.getPass().equals(usuario.getPass())) {
+			logger.info("Login correcto redirigiendo a panel principal");
+			return "redirect:/panel";
 		}
-				
-		return "redirect:/panel";
-	}//385431732
+		logger.error("Error en el login redireccionando al login");
+		return "/login/login";
+	}
 	
-	
+	@PostMapping("/register")
+	public String crearUser(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model) {
+		//String name = request.getParameter("nombre");
+		
+		return "redirect:/";
+	}
 	
 	//Forma de obtener la respuesta del front 
 	@PostMapping("/formlogins")

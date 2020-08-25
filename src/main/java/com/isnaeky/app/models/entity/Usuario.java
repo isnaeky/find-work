@@ -26,8 +26,7 @@ public class Usuario implements Serializable{
 	
 	//@Size(min = 4 , max = 12)//Para crear un rango de un string 
 	@NotEmpty//para que funcione con spring boot 2.3.. se tiene que agregar la dependencia de spring-boot-starter-validation si no podra acceder a las validaciones 
-	private String user;
-	
+	private String email;
 	
 	//@Size(min = 4 , max = 12)//Para crear un rango de un string 
 	@NotEmpty//para que funcione con spring boot 2.3.. se tiene que agregar la dependencia de spring-boot-starter-validation si no podra acceder a las validaciones 
@@ -44,13 +43,13 @@ public class Usuario implements Serializable{
 	}
 
 
-	public String getUser() {
-		return user;
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 

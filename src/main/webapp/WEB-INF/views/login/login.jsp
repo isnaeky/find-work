@@ -26,8 +26,8 @@
 				<form method="post" action="/formlogin">
 					<div class="row gtr-50 gtr-uniform">
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="user" id="users" value=""
-								placeholder="Usuario" />
+							<input type="text" name="email" id="user" value=""
+								placeholder="Email" />
 						</div>
 						<div class="col-6 col-12-mobilep">
 							<input type="password" name="pass" id="pass" value=""
