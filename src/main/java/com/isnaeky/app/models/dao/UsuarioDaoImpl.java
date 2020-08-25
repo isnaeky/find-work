@@ -45,16 +45,17 @@ public class UsuarioDaoImpl implements IUsuarioDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> findO(String name) {
-		Query query = em.createQuery("select id,user,pass from usuario as u where u.user = 'isi'");
-		return  query.getResultList( );
+		//Query query = em.createQuery("select id,user,pass from usuario as u where u.user = 'isi'");
+		//return  query.getResultList( );
+		return null;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public Usuario getUsuario(String email) {
 		Query nativeQuery = em.createNativeQuery("SELECT id, email, pass FROM Usuario WHERE email = ?", Usuario.class);
         nativeQuery.setParameter(1, email);
-        return (Usuario) nativeQuery.getSingleResult(); 
+        return (Usuario) nativeQuery.getSingleResult();
 	}
 	
 }
