@@ -22,7 +22,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Override
 	public void save(Usuario usuario) {
 		// TODO Auto-generated method stub
-		
+		usuarioDao.save(usuario);
 	}
 
 	@Override

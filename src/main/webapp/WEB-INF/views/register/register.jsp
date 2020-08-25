@@ -29,15 +29,15 @@
 								placeholder="Nombre" autocomplete="off" />
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="app" id="app" value=""
+							<input type="text" name="apellidoP" id="app" value=""
 								placeholder="Apellido Paterno" autocomplete="off" />
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="apm" id="apm" value=""
+							<input type="text" name="apellidoM" id="apm" value=""
 								placeholder="Apellido Materno" autocomplete="off" />
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="email" name="correo" id="correo" value=""
+							<input type="email" name="email" id="correo" value=""
 								placeholder="Email" autocomplete="off" />
 						</div>
 						<div class="col-6 col-12-mobilep" style="padding-left: 38px;">
@@ -46,21 +46,24 @@
 						</div>
 						<div class="col-6 col-12-mobilep">
 							<!-- radiobutton sexo -->
-							<input type="radio" id="mujer" name="priority" checked="">
-							<label for="mujer">Mujer</label> 
-							<input type="radio" id="hombre" name="priority"> 
-							<label for="hombre">Hombre</label>
+							<input type="radio" id="mujer" value="F" name="sexo"
+								checked=""> <label for="mujer">Mujer</label> <input
+								type="radio" id="hombre" value="M" name="sexo"> <label
+								for="hombre">Hombre</label>
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="tel" id="tel" value=""
+							<input type="text" name="telefono" id="tel" value=""
 								placeholder="Telefono" autocomplete="off" />
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="fechaN" id="fechaN" value=""
+							<input type="text" name="fechaNa" id="fechaNa" value=""
 								placeholder="Fecha de Nacimiento" autocomplete="off" />
 						</div>
-
-<!-- 
+						<div class="col-12">
+							<input type="text" name="pass" id="pass" value=""
+								placeholder="Contraseña" autocomplete="off" />
+						</div>
+						<!-- 
 						<div class="col-12">
 							<input type="text" name="subject" id="subject" value=""
 								placeholder="Subject" autocomplete="off" />
